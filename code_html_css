@@ -1,0 +1,125 @@
+//Html --- code //
+
+
+<html>
+  <head>
+    
+  </head>
+  
+  <body>
+    
+    
+    <div class="section_1">
+	<div class="col span_1_of_2"><span style="color:red">
+	 First part, in this example we have a two column responsive grid. On the left we have a red column, on the right a green one. The problem is that when displayed on devices like iPhones, the red column on the left becomes the first and the green one below. I would like that when they are displayed for desktop they remain, red column on the left and green on the right, but when viewing for mobile I would like the two columns to swap and therefore that the green column is above the red one. Basically I'm asking at  478px the columns swap, with only css.
+    </span>
+	</div>
+	<div class="col span_1_of_2">
+    <span style="color:green">
+	Second part, the solution I found today at work. Without using boostrap or flex properties. With simple css. A duplicate of the row is created, but exchanging the texts. So I will have above a red row on the left and green on the right. Under a green on the left and red on the right.
+Now since I want the exchange to be at 478px, I go to the css and through the media queries I say: the 2 row or you must not see from 2400px to 478px. While the first row (the original one) must not be seen from 0px to 478px. The game is done.
+    </span>
+	</div>
+</div>
+    </div>
+    
+  
+  
+  
+  <div class="section_2">
+	<div class="col span_1_of_2"><span style="color:green">
+	Second part, the solution I found today at work. Without using boostrap or flex properties. With simple css. A duplicate of the row is created, but exchanging the texts. So I will have above a red row on the left and green on the right. Under a green on the left and red on the right.
+Now since I want the exchange to be at 478px, I go to the css and through the media queries I say: the 2 row or you must not see from 2400px to 478px. While the first row (the original one) must not be seen from 0px to 478px. The game is done.
+    </span>
+	</div>
+	<div class="col span_1_of_2">
+    <span style="color:red">
+	 First part, in this example we have a two column responsive grid. On the left we have a red column, on the right a green one. The problem is that when displayed on devices like iPhones, the red column on the left becomes the first and the green one below. I would like that when they are displayed for desktop they remain, red column on the left and green on the right, but when viewing for mobile I would like the two columns to swap and therefore that the green column is above the red one. Basically I'm asking at  478px the columns swap, with only css.
+    </span>
+	</div>
+</div>
+    </div>
+    
+    
+  </body>
+  
+  
+</html>
+
+
+
+
+
+
+// css code //
+
+/*  SECTIONS  */
+.section_1 {
+	clear: both;
+	padding: 0px;
+	margin: 10px 10px 10px 150px;
+}
+
+.section_2 {
+	clear: both;
+	padding: 0px;
+	margin: 10px 10px 10px 150px;
+}
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF TWO  */
+.span_2_of_2 {
+	width: 100%;
+
+}
+.span_1_of_2 {
+	width: 49.2%;
+ 
+}
+
+@media (max-width:2400px) and (min-width:478px) {
+  .section_2{
+    display:none;
+    
+  }
+}
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 478px) {
+	.col { 
+		margin: 1% 0 1% 0%;
+	}
+  
+  .section_1{
+    
+    display:none;
+  }
+  
+  
+  
+  
+  
+}
+
+@media only screen and (max-width: 480px) {
+	.span_2_of_2, .span_1_of_2 { width: 100%;
+  }
+}
+
+
+
+
+
+
+
